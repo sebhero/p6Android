@@ -1,6 +1,7 @@
 package se.mah.kirby.algorithms;
 
 
+import android.graphics.Typeface;
 import se.mah.kirby.Color.Color;
 import se.mah.kirby.controller.Controller;
 import se.mah.kirby.model.Array7;
@@ -30,6 +31,11 @@ public class ShiftText {
 	private int stepps;
 	//total antal steg som finns.
 	private int doneStepping;
+
+	public ShiftText(Typeface font) {
+		filler = new FillCharacter(font);
+	}
+
 
 	/**
 	 * Tar ett steg i message och shiftar över det till messageView
@@ -97,7 +103,7 @@ public class ShiftText {
 		message.clear();
 
 		//save the texy
-		filler = new FillCharacter();
+
 		texy = texy.toUpperCase();
 		for(int n = 0; n < texy.length(); n++) {
 			Array7x7 character = filler.fillWithOneType((int) texy.charAt(n));

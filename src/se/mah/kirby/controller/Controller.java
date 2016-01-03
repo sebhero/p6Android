@@ -2,7 +2,7 @@ package se.mah.kirby.controller;
 
 
 import android.app.Application;
-import se.mah.kirby.Color.Color;
+import android.graphics.Typeface;
 import se.mah.kirby.algorithms.ShiftArray;
 import se.mah.kirby.algorithms.ShiftText;
 import se.mah.kirby.model.Array7;
@@ -27,8 +27,9 @@ import java.util.TimerTask;
  */
 public class Controller extends Application{
 
+	private Typeface font;
 	//Hanterar text shiftning
-	private ShiftText shiftText = new ShiftText();
+	private ShiftText shiftText;
 
 	private Array7x7[] colorDisplay;
 	//TODO remove use ShiftText instead
@@ -42,9 +43,7 @@ public class Controller extends Application{
 	//TODO remove use ShiftText instead
 	private ArrayList<Array7x7> message = new ArrayList<Array7x7>();
 
-	public DIRECTION getDirection() {
-        return dir;
-    }
+
 
 	//håller koll på vilket håll vi shiftar
     public enum DIRECTION {
@@ -64,7 +63,7 @@ public class Controller extends Application{
     //vilket håll vi ska rita ut
 	private DIRECTION dir = DIRECTION.LEFT;
     //våran algoritm för att skifta a7x7
-    private final ShiftArray shifter;
+    private ShiftArray shifter = new ShiftArray();
     private FillAlgorithm filler;
     private Array7x7 model;
     private ViewImpl view;
@@ -73,23 +72,38 @@ public class Controller extends Application{
 
     /**
      * A se.mah.kirby.controller to handles communication with the Array7x7 se.mah.kirby.model and diffrent strategies for filling it.
-     * @param model the Array7x7 se.mah.kirby.model
-     * @param view the view we are displaying the matrix on
+     *
      */
     public Controller() {
         this.model = new Array7x7();
-        this.view = view;
-        this.view.setCtrl(this);
-        colorDisplay = new Array7x7[view.getHorizontalPages()];
-        filler = getFiller(FILLERTYPE.COLORS);
-        for(int n = 0; n < colorDisplay.length; n++)
-            colorDisplay[n] = filler.fillWithOneType(Color.BLACK);
+//        this.view = view;
+//        this.view.setCtrl(this);
+
         shifter = new ShiftArray();
-        updateView();
+
+//        updateView();
     }
 
+	@Override
+	public void onCreate() {
+		super.onCreate();
 
-     /**
+		//Need to be created here, Due to Android isnt loaded in constructor so there is no access to GetAssets()
+		font = Typeface.createFromAsset(getAssets(), "00TT.ttf");
+		shiftText = new ShiftText(font);
+
+
+	}
+
+	public DIRECTION getDirection() {
+		return dir;
+	}
+
+	public void setView(ViewImpl view) {
+		this.view = view;
+	}
+
+	/**
      * Update the view med Array7x7 av nummer
      */
     private void updateView() {
@@ -167,7 +181,7 @@ public class Controller extends Application{
             case COLORS:
                 return new FillColor();
             case CHARACTERS:
-                return new FillCharacter();
+                return new FillCharacter(font);
             case NUMBERS:
             default:
                 return new FillNumbers();
@@ -505,7 +519,6 @@ public class Controller extends Application{
 	 * Rullande text av strängen vi har laddat in
 	 */
 	public void flowText() {
-
 		switch (dir) {
 			case RIGHT:
 			case LEFT:

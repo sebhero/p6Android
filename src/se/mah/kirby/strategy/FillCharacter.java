@@ -1,6 +1,7 @@
 package se.mah.kirby.strategy;
 
 
+import android.graphics.Typeface;
 import se.mah.kirby.algorithms.Alphabet;
 import se.mah.kirby.model.Array7x7;
 
@@ -16,8 +17,12 @@ import java.util.Random;
  * Med hjälp av Strategypattern
  */
 public class FillCharacter implements FillAlgorithm {
-    private final Alphabet alphabet = new Alphabet();
+    private final Alphabet alphabet;
     private final Random rnd = new Random();
+
+    public FillCharacter(Typeface font) {
+        alphabet = new Alphabet(font);
+    }
 
     @Override
     public Array7x7 fillWithRandom() {

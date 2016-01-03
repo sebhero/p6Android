@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+
+
 /**
  * @author Gustaf Bohlin, Sebastian J Börebäck
  * Skapar en 7x7 array med 1 och 0 som representerar en bokstav
@@ -21,13 +23,17 @@ public class Alphabet {
 	/**
 	 * Konstruktor
 	 */
-	public Alphabet() {
-		try {
-			font = initFont();
-		} catch (IOException | URISyntaxException e) {
-			e.printStackTrace();
-        }
-    }
+//	public Alphabet() {
+//		try {
+//			font = initFont();
+//		} catch (IOException | URISyntaxException e) {
+//			e.printStackTrace();
+//        }
+//    }
+
+	public Alphabet(Typeface font) {
+		this.font = font;
+	}
 
 	/**
 	 *
@@ -36,9 +42,11 @@ public class Alphabet {
 	 */
 	public Typeface initFont() throws IOException, URISyntaxException {
         URL fontpath = this.getClass().getClassLoader().getResource("assets/00TT.ttf");
+//		face = Typeface.createFromAsset(getAssets(), "font.otf");
 //		return Font.createFont(Font.TRUETYPE_FONT, new File(fontpath.toURI())).deriveFont(12f);
-		return Typeface.createFromFile(fontpath.toURI().toString());
-				//createFont(Font.TRUETYPE_FONT, new File(fontpath.toURI())).deriveFont(12f);
+
+//		Typeface temp = Typeface.createFromAsset(getAssets(),)
+		return null;
 	}
 
 	/**
@@ -52,19 +60,42 @@ public class Alphabet {
 		int[][] array = new int[7][7];
 
 
-		int w = 7, h = 7;
+		//convert char to string
+		String text = String.valueOf(letter);
+		//create a paintbrush
+		Paint paint = new Paint();
+		//set font size
+		paint.setTextSize(12);
+		//set font
+		paint.setTypeface(font);
+		//set brush color
+		paint.setColor(Color.WHITE);
+		//turn off
+		paint.setAntiAlias(true);
+//		paint.setTextAlign(Paint.Align.LEFT);
+//		float baseline = -paint.ascent(); // ascent() is negative
+		//set the hight and width of the letter
+		int width = (int) (paint.measureText(text) + 0.5f); // round
+		int height = 11;//ar alltid 11 i denna textsize 12
+//		int height = (int) (baseline + paint.descent() + 0.5f);
 
-		Bitmap.Config conf = Bitmap.Config.ARGB_8888; // see other conf types
-		Bitmap bmp = Bitmap.createBitmap(w, h, conf); // this creates a MUTABLE bitmap
+		//ifall bokstaven är mindre än 7x7
+		if (width < 7) {
+			width =7;
+		}
+		if (height < 7) {
+			height=7;
+		}
+		//create the image to paint to
+		Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+		//create the canvas we are using
 		Canvas canvas = new Canvas(bmp);
 
-		Paint tPaint = new Paint();
-		tPaint.setTypeface(font);
-		tPaint.setColor(Color.WHITE);
+		//paint the canvas
+		canvas.drawText(text, 1, 7, paint);
 
-		canvas.drawText(Character.toString(letter),0,0,tPaint);
-
-
+		//ifall man skulle forsoka skala.
+		//Bitmap bmp = Bitmap.createScaledBitmap(image, 7,7, false);
 
 
 //		//Skapar en ny bild av typen RGB
@@ -79,6 +110,9 @@ public class Alphabet {
         //skriver bilden i arrayen genom att loppa igenom den.
         //-16777216 är blank ruta
 
+
+		//Acutall size is 7x11 but the 4 extra pixels are all black color
+
 		if (letter == ' ') {
 			for (int i = 0; i < 7; i++) {
 				for (int j = 0; j < 7; j++) {
@@ -88,9 +122,11 @@ public class Alphabet {
 			return new Array7x7(array);
 		}
 
+
         for (int y = 0; y < 7; y++) {
             for (int x = 0; x < 7; x++) {
-            	if(bmp.getPixel(x,y) == Color.BLACK) {
+	            //get the colors from bitmap
+	            if(bmp.getPixel(x,y) == Color.BLACK) {
             		array[y][x] = Color.TRANSPARENT;
             	}
             	else {
