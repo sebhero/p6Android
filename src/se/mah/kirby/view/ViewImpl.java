@@ -23,9 +23,4 @@ public interface ViewImpl {
     void updateView(ArrayList<int[][]> all, Controller.DIRECTION dir);
 
 
-    /**
-     * @deprecated will be replaced by updateView
-     * @param all
-     */
-//    void updateViewColor(int[][] all);
 }
