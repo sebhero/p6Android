@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorDisplay">
+        <attr name="cd_horizontalPages" format="integer" />
+        <attr name="cd_verticalPages" format="integer" />
+        <attr name="cd_background" format="color" />
+        <attr name="cd_grid" format="color" />
+        <attr name="cd_gridStroke" format="integer" />
+        <attr name="cd_sideSize" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="IntDisplay">
+        <attr name="id_grid" format="color" />
+        <attr name="id_background" format="color" />
+        <attr name="id_mode" format="enum">
+            <enum name="show_bytes" value="0" />
+            <enum name="show_int" value="1" />
+        </attr>
+        <attr name="id_textColor" format="color" />
+    </declare-styleable>
+</resources>
