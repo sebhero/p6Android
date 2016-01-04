@@ -29,6 +29,8 @@ public class NumberActivity extends Activity implements ViewImpl{
 		ctrl= (Controller) getApplicationContext();
 		//set the view to the controller
 		ctrl.setView(this);
+		//fill the intDisp with random numbers
+		ctrl.showRandom();
 	}
 
 	public void getRandomNumbers(View view) {

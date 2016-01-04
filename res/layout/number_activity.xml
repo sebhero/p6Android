@@ -25,28 +25,5 @@
             android:text="Switch to ColorText"
             android:onClick="switchToColorTextView"/>
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Shift Choices"
-            android:id="@+id/textView"/>
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:orientation="horizontal">
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="right"
-                android:onClick="shiftRight"/>
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="left"
-                android:onClick="shiftLeft"/>
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="up"
-                android:onClick="shiftUp"
-        />
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="down"
-                android:onClick="shiftDown"
-        />
-    </LinearLayout>
-
 
 </LinearLayout>
