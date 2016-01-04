@@ -1,6 +1,7 @@
 package se.mah.kirby.p6Android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -46,7 +47,6 @@ public class MainActivity extends Activity implements ViewImpl{
 
 	@Override
 	public void setCtrl(Controller ctrl) {
-		ctrl = ctrl;
 	}
 
 	@Override
@@ -123,5 +123,10 @@ public class MainActivity extends Activity implements ViewImpl{
 		ctrl.loadFlowText(texy);
 		ctrl.setDirection(Controller.DIRECTION.DOWN);
 		ctrl.flowText();
+	}
+
+	public void switchToNumbersView(View view) {
+		Intent openNewActivity = new Intent(getApplicationContext(), NumberActivity.class);
+		startActivity(openNewActivity);
 	}
 }

@@ -2,40 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               xmlns:custom="http://schemas.android.com/apk/res-auto"
-              xmlns:app="http://schemas.android.com/apk/res/se.mah.kirby.p6Android"
               android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
->
-    <se.mah.kirby.Color.ColorDisplay
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cd_background="@android:color/black"
-            app:cd_horizontalPages="2"
-            app:cd_verticalPages="1"
-            android:id="@+id/colorDisplay"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <se.mah.kirby.Color.IntDisplay android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                   android:id="@+id/intDisplay"
+
     />
 
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/etInputText"
-            android:text="39"
-    />
     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:orientation="horizontal">
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Random Color"
-                android:onClick="getRandomColor"/>
+                android:text="Random numbers"
+                android:onClick="getRandomNumbers"/>
 
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Load text"
-                android:onClick="loadText"/>
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Switch to numbers"
-                android:onClick="switchToNumbersView"/>
-
+                android:text="Increasing numbers"
+                android:onClick="getIncreasingNumbers"/>
     </LinearLayout>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Switch to ColorText"
+            android:onClick="switchToColorTextView"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +34,7 @@
     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:orientation="horizontal">
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="right"
-        android:onClick="shiftRight"/>
+                android:onClick="shiftRight"/>
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="left"
                 android:onClick="shiftLeft"/>
@@ -61,4 +50,3 @@
 
 
 </LinearLayout>
-

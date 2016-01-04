@@ -10,6 +10,12 @@ import java.util.ArrayList;
  */
 public interface ViewImpl {
 
+	/**
+     * Never used due to the AndroidManifest.xml CDI in the controller into the view.
+     * afterwards the view calls the controller and sets the current view
+     * @param ctrl
+     */
+    @Deprecated
     void setCtrl(Controller ctrl);
 
     void updateView(int[][] all);
