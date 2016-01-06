@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class FlowText extends Activity implements ViewImpl{
 
-//test
+
 	private ColorDisplay colorDisplay;
 	private Controller ctrl;
 	private EditText etInputText;
