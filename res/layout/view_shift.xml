@@ -1,21 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/kirby_background">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></RelativeLayout>
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="478dp"></GridLayout>
-
-    <Button
+    <se.mah.kirby.Color.IntDisplay
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Main"
-        android:id="@+id/btn_main"
-        android:onClick="switchToStartMeny"/>
+        android:layout_height="210dp"
+        android:id="@+id/shiftDisplay" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 1:"
+                android:id="@+id/txt_info01"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 2:"
+                android:id="@+id/txt_info02"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 3:"
+                android:id="@+id/txt_info03"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 4:"
+                android:id="@+id/txt_info04"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 5:"
+                android:id="@+id/txt_info05"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 6:"
+                android:id="@+id/txt_info06"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 7:"
+                android:id="@+id/txt_info07"
+                android:textColor="#FF000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/txt_edit01"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:id="@+id/txt_edit02"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:id="@+id/txt_edit03"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:id="@+id/txt_edit04"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:id="@+id/txt_edit05"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:id="@+id/txt_edit06"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:id="@+id/txt_edit07"
+                android:textColor="#FF000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Main"
+            android:id="@+id/btn_main"
+            android:onClick="switchToStartMeny"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Shift Right"
+            android:onClick="setTextNumbers"
+            android:id="@+id/btn_shift_r" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Shift Left"
+            android:id="@+id/btn_shift_l" />
+
+    </LinearLayout>
 
 </LinearLayout>

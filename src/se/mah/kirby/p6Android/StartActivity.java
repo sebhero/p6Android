@@ -1,6 +1,5 @@
 package se.mah.kirby.p6Android;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -66,7 +65,7 @@ public class StartActivity extends Activity implements ViewImpl{
     }
 
     public void switchToColorTextView(View view) {
-        Intent openNewActivity = new Intent(getApplicationContext(), MainActivity.class);
+        Intent openNewActivity = new Intent(getApplicationContext(), FlowText.class);
         startActivity(openNewActivity);
     }
     public void switchToColorView(View view) {

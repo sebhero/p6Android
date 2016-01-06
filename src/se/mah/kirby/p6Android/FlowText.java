@@ -13,7 +13,7 @@ import se.mah.kirby.view.ViewImpl;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity implements ViewImpl{
+public class FlowText extends Activity implements ViewImpl{
 
 
 	private ColorDisplay colorDisplay;
