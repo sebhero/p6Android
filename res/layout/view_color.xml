@@ -1,11 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/kirby_background"
+    android:weightSum="1">
 
-    <GridLayout
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row1"
+            android:id="@+id/btn_row1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row2"
+            android:id="@+id/btn_row2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row3"
+            android:id="@+id/btn_row3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row4"
+            android:id="@+id/btn_row4" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row5"
+            android:id="@+id/btn_row5" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row6"
+            android:id="@+id/btn_row6" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color Row7"
+            android:id="@+id/btn_row7" />
 
         <Button
             android:layout_width="wrap_content"
@@ -13,6 +60,76 @@
             android:text="Main"
             android:id="@+id/btn_home"
             android:onClick="switchToStartMeny"
-            android:layout_gravity="bottom" />
-    </GridLayout>
+            android:layout_row="7"
+            android:layout_column="0"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:weightSum="1">
+
+        <se.mah.kirby.Color.ColorDisplay
+            android:layout_width="271dp"
+            android:layout_height="269dp"
+            android:id="@+id/view" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shift Up"
+                android:id="@+id/btn_shiftUp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shift Down"
+                android:id="@+id/btn_shiftDown"
+                android:layout_row="0"
+                android:layout_column="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shift Left"
+                android:id="@+id/btn_shiftLeft"
+                android:layout_row="1"
+                android:layout_column="0" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shift Right"
+                android:id="@+id/btn_shiftRight"
+                android:layout_row="1"
+                android:layout_column="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fill Random"
+                android:onClick="randColor"
+                android:id="@+id/btn_randColor"
+                android:layout_row="2"
+                android:layout_column="0" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fill One Color"
+                android:id="@+id/btn_oneColor"
+                android:layout_row="2"
+                android:layout_column="1" />
+
+        </GridLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
