@@ -194,8 +194,14 @@ public class Controller extends Application{
      */
     public void showRandomColor() {
         filler = getFiller(FILLERTYPE.COLORS);
-        model = filler.fillWithRandom();
-        updateView();
+		if (model == null) {
+			System.out.println("Model is null!!!");
+		}
+		else {
+			System.out.println("model exists");
+			model = filler.fillWithRandom();
+			updateView();
+		}
     }
 
     /**
