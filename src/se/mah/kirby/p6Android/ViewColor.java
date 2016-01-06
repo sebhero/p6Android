@@ -28,6 +28,15 @@ public class ViewColor extends Activity implements ViewImpl{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_color);
+
+        colorDisplay =  (ColorDisplay) findViewById(R.id.colorDisplay);
+        colorDisplay.setBackgroundColor(Color.BLACK);
+        colorDisplay.setGridColor(Color.YELLOW);
+
+        //Get Global Controller Class object (see application tag in AndroidManifest.xml)
+        ctrl= (Controller) getApplicationContext();
+        //set the view to the controller
+        ctrl.setView(this);
     }
 
     public void switchToStartMeny(View view) {
