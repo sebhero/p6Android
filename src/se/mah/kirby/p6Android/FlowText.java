@@ -31,7 +31,7 @@ public class FlowText extends Activity implements ViewImpl{
 
 		colorDisplay =  (ColorDisplay) findViewById(R.id.colorDisplay);
 		colorDisplay.setBackgroundColor(Color.BLACK);
-		colorDisplay.setGridColor(Color.YELLOW);
+		colorDisplay.setGridColor(Color.PINK);
 		etInputText = (EditText) findViewById(R.id.etInputText);
 
 

@@ -37,11 +37,11 @@ public class Color {
     public static final int RED         = 0xFFFF0000;
     public static final int GREEN       = 0xFF00FF00;
     public static final int BLUE        = 0xFF0000FF;
-    public static final int YELLOW      = 0xff69b4;
+    public static final int YELLOW      = 0xFFFFFF00;
     public static final int CYAN        = 0xFF00FFFF;
     public static final int MAGENTA     = 0xFFFF00FF;
     public static final int TRANSPARENT = 0;
-    public static final int PINK        = 0xff69b4;
+    public static final int PINK        = 0xFF69B4;
     //0xFFCCCCCC
     /**
      * Return the alpha component of a color int. This is the same as saying

@@ -141,7 +141,7 @@
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:text="Shift Right"
-            android:onClick="setTextNumbers"
+            android:onClick="shiftRight"
             android:id="@+id/btn_shift_r" />
 
         <Button

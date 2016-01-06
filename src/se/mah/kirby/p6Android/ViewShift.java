@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import se.mah.kirby.Color.IntDisplay;
 import se.mah.kirby.controller.Controller;
+import se.mah.kirby.model.Array7;
 import se.mah.kirby.model.Array7x7;
 import se.mah.kirby.view.ViewImpl;
 
@@ -19,8 +20,16 @@ import se.mah.kirby.view.ViewImpl;
 public class ViewShift extends Activity implements ViewImpl {
     private Controller ctrlShift;
     private IntDisplay intDisplayshift;
-    private TextView[] textViews = new TextView[7];
-
+    private TextView textViews01;
+    private TextView textViews02;
+    private TextView textViews03;
+    private TextView textViews04;
+    private TextView textViews05;
+    private TextView textViews06;
+    private TextView textViews07;
+    private Array7 arr = new Array7();
+    private Array7 temp1 = new Array7();
+    private Array7 temp2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,19 +42,27 @@ public class ViewShift extends Activity implements ViewImpl {
         ctrlShift.setView(this);
         ctrlShift.showRandom();
 
-        textViews[0] = (TextView) findViewById(R.id.txt_edit01);
-        textViews[1] = (TextView) findViewById(R.id.txt_edit02);
-        textViews[2] = (TextView) findViewById(R.id.txt_edit03);
-        textViews[3] = (TextView) findViewById(R.id.txt_edit04);
-        textViews[4] = (TextView) findViewById(R.id.txt_edit05);
-        textViews[5] = (TextView) findViewById(R.id.txt_edit06);
-        textViews[6] = (TextView) findViewById(R.id.txt_edit07);
+        textViews01 = (TextView) findViewById(R.id.txt_edit01);
+        textViews02 = (TextView) findViewById(R.id.txt_edit02);
+        textViews03 = (TextView) findViewById(R.id.txt_edit03);
+        textViews04 = (TextView) findViewById(R.id.txt_edit04);
+        textViews05 = (TextView) findViewById(R.id.txt_edit05);
+        textViews06 = (TextView) findViewById(R.id.txt_edit06);
+        textViews07 = (TextView) findViewById(R.id.txt_edit07);
     }
 
     public void shiftRight(View view){
-        ctrlShift.setDirection(Controller.DIRECTION.RIGHT);
 
-
+        for (int i = 0; i < temp1.getLength(); i++) {
+                temp1.setElement(i, ctrlShift.getElement(i, 0));
+        }
+        textViews01.setText(String.valueOf(ctrlShift.getElement(0,0)));
+        textViews02.setText(String.valueOf(ctrlShift.getElement(0,1)));
+        textViews03.setText(String.valueOf(ctrlShift.getElement(0,2)));
+        textViews04.setText(String.valueOf(ctrlShift.getElement(0,3)));
+        textViews05.setText(String.valueOf(ctrlShift.getElement(0,4)));
+        textViews06.setText(String.valueOf(ctrlShift.getElement(0,5)));
+        textViews07.setText(String.valueOf(ctrlShift.getElement(0,6)));
 
     }
     public void shiftLeft(View view){
