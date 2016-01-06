@@ -18,42 +18,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row1"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row2"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row2" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row3"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row3" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row4"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row4" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row5"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row5" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row6"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row6" />
 
         <Button
@@ -61,7 +55,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Color Row7"
-            android:onClick="chooseColor"
             android:id="@+id/btn_row7" />
 
         <Button
@@ -83,8 +76,8 @@
         android:weightSum="1">
 
         <se.mah.kirby.Color.ColorDisplay
-                android:layout_width="260dp"
-                android:layout_height="260dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 app:cd_background="@android:color/black"
                 app:cd_horizontalPages="1"
                 app:cd_verticalPages="1"
@@ -98,14 +91,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shift Up"
-                android:onClick="chooseColor"
                 android:id="@+id/btn_shiftUp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shift Down"
-                android:onClick="chooseColor"
                 android:id="@+id/btn_shiftDown"
                 android:layout_row="0"
                 android:layout_column="1" />
@@ -114,7 +105,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shift Left"
-                android:onClick="chooseColor"
                 android:id="@+id/btn_shiftLeft"
                 android:layout_row="1"
                 android:layout_column="0" />
@@ -123,7 +113,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shift Right"
-                android:onClick="chooseColor"
                 android:id="@+id/btn_shiftRight"
                 android:layout_row="1"
                 android:layout_column="1" />
@@ -132,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fill Random"
-                android:onClick="chooseColor"
+                android:onClick="randColor"
                 android:id="@+id/btn_randColor"
                 android:layout_row="2"
                 android:layout_column="0" />
@@ -141,7 +130,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fill One Color"
-                android:onClick="chooseColor"
                 android:id="@+id/btn_oneColor"
                 android:layout_row="2"
                 android:layout_column="1" />
