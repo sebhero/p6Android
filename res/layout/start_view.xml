@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/kirby_background">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/img_kirby">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Numbers"
+            android:id="@+id/btn_nbr"
+            android:onClick="switchToNumberActivity"
+            android:layout_below="@+id/img_kirby"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Flow Text"
+            android:id="@+id/btn_flow"
+            android:layout_alignTop="@+id/btn_nbr"
+            android:layout_centerHorizontal="true"
+            android:onClick="switchToColorTextView"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shift"
+            android:id="@+id/btn_shift"
+            android:layout_below="@+id/btn_color"
+            android:onClick="switchToShiftView"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color"
+            android:id="@+id/btn_color"
+            android:onClick="switchToColorView"
+            android:layout_below="@+id/btn_flow"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_kirby"
+        android:src="@drawable/kirby"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

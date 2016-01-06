@@ -27,6 +27,7 @@ public class MainActivity extends Activity implements ViewImpl{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		getActionBar().hide();
 
 		colorDisplay =  (ColorDisplay) findViewById(R.id.colorDisplay);
 		colorDisplay.setBackgroundColor(Color.BLACK);
@@ -125,8 +126,23 @@ public class MainActivity extends Activity implements ViewImpl{
 		ctrl.flowText();
 	}
 
-	public void switchToNumbersView(View view) {
+	public void switchToStartActivity(View view) {
+		Intent openNewActivity = new Intent(getApplicationContext(), StartActivity.class);
+		startActivity(openNewActivity);
+	}
+
+	public void switchToNumberActivity(View view) {
 		Intent openNewActivity = new Intent(getApplicationContext(), NumberActivity.class);
 		startActivity(openNewActivity);
+	}
+	public void shiftStart(View view){
+		String texy = String.valueOf(etInputText.getText());
+		ctrl.loadFlowText(texy);
+		ctrl.setDirection(Controller.DIRECTION.LEFT);
+		ctrl.flowText();
+	}
+	public void shiftStopp(View view){
+
+
 	}
 }

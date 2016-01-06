@@ -560,6 +560,7 @@ public class Controller extends Application{
 		public void run() {
 			if (shiftText.checkIfDoneStepping()){
 				//TODO if want continues flow remove this line
+
 				timer.cancel();
 				return;
 			}

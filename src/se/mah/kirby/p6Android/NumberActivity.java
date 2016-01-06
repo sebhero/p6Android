@@ -22,6 +22,7 @@ public class NumberActivity extends Activity implements ViewImpl{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.number_activity);
+		getActionBar().hide();
 
 		intDisplay =  (IntDisplay) findViewById(R.id.intDisplay);
 
@@ -75,8 +76,8 @@ public class NumberActivity extends Activity implements ViewImpl{
 	}
 
 
-	public void switchToColorTextView(View view) {
-		Intent openNewActivity = new Intent(getApplicationContext(), MainActivity.class);
+	public void switchToStartActivity(View view) {
+		Intent openNewActivity = new Intent(getApplicationContext(), StartActivity.class);
 		startActivity(openNewActivity);
 	}
 }

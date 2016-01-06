@@ -4,26 +4,35 @@
               xmlns:custom="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+    android:background="@drawable/kirby_background">
 
-    <se.mah.kirby.Color.IntDisplay android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                   android:id="@+id/intDisplay"
+    <se.mah.kirby.Color.IntDisplay
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/intDisplay"
+        android:layout_weight="1" />
 
-    />
-
-    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:orientation="horizontal">
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Random numbers"
                 android:onClick="getRandomNumbers"/>
 
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Increasing numbers"
                 android:onClick="getIncreasingNumbers"/>
+
     </LinearLayout>
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Switch to ColorText"
-            android:onClick="switchToColorTextView"/>
+
+    <Button android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Swap to main"
+            android:onClick="switchToStartActivity"/>
 
 
 </LinearLayout>

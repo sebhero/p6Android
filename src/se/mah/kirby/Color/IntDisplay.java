@@ -59,7 +59,7 @@ public class IntDisplay extends View {
         paint = new Paint();
         typeface = Typeface.create(Typeface.MONOSPACE,Typeface.NORMAL);
         paint.setTypeface(typeface);
-        paint.setTextSize(28);
+        paint.setTextSize(78);
         paint.getTextBounds("123,123",0,7,rect);
         gridWidth = rect.width()+16;
         gridHeight = 2*rect.height()+16;

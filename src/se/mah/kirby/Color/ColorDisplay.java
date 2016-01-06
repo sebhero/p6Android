@@ -18,8 +18,8 @@ public class ColorDisplay extends View {
 //    private int NO_COLOR = Color.argb(0,255,255,255);
     private int[][] systemPaint;
     private int[][] userPaint;
-    private int background = Color.LTGRAY;
-    private int grid = Color.BLACK;
+    private int background = se.mah.kirby.Color.Color.LTGRAY;
+    private int grid = se.mah.kirby.Color.Color.BLACK;
     private int gridStroke = 2;
     private int sideSize = 40;
     private int horizontalPages = 1;

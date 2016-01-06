@@ -6,21 +6,20 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
->
+    android:background="@drawable/kirby_background">
     <se.mah.kirby.Color.ColorDisplay
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             app:cd_background="@android:color/black"
-            app:cd_horizontalPages="2"
-            app:cd_verticalPages="1"
-            android:id="@+id/colorDisplay"
-    />
+            app:cd_horizontalPages="5"
+            app:cd_verticalPages="2"
+            android:id="@+id/colorDisplay" />
 
     <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etInputText"
-            android:text="39"
+            android:text="kirby"
     />
     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:orientation="horizontal">
@@ -32,8 +31,8 @@
                 android:text="Load text"
                 android:onClick="loadText"/>
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Switch to numbers"
-                android:onClick="switchToNumbersView"/>
+                android:text="Swap to Main"
+                android:onClick="switchToStartActivity"/>
 
     </LinearLayout>
     <TextView
@@ -44,7 +43,8 @@
             android:id="@+id/textView"/>
     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:orientation="horizontal">
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="right"
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="right"
         android:onClick="shiftRight"/>
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="left"
@@ -57,6 +57,33 @@
                 android:text="down"
                 android:onClick="shiftDown"
         />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Continous Text"
+        android:id="@+id/textView2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:onClick="shiftStart"
+            android:id="@+id/button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stopp"
+            android:id="@+id/button2" />
+
     </LinearLayout>
 
 
