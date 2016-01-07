@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/kirby_background">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"></LinearLayout>
+
     <se.mah.kirby.Color.IntDisplay
         android:layout_width="wrap_content"
         android:layout_height="210dp"
@@ -123,6 +129,117 @@
                 android:id="@+id/txt_edit07"
                 android:textColor="#FF000000" />
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 1:"
+                android:id="@+id/txt_info_L01"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 2:"
+                android:id="@+id/txt_info_L02"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 3:"
+                android:id="@+id/txt_info_L03"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 4:"
+                android:id="@+id/txt_info_L04"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 5:"
+                android:id="@+id/txt_info_L05"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 6:"
+                android:id="@+id/txt_info_L06"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Col 7:"
+                android:id="@+id/txt_info_L07"
+                android:textColor="#FF000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:id="@+id/txt_edit_L01"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/txt_edit_L02"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:id="@+id/txt_edit_L03"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:id="@+id/txt_edit_L04"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:id="@+id/txt_edit_L05"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:id="@+id/txt_edit_L06"
+                android:textColor="#FF000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:id="@+id/txt_edit_L07"
+                android:textColor="#FF000000" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -148,6 +265,7 @@
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:text="Shift Left"
+            android:onClick="shiftLeft"
             android:id="@+id/btn_shift_l" />
 
     </LinearLayout>
