@@ -11,6 +11,7 @@ import se.mah.kirby.strategy.FillCharacter;
 
 import java.util.ArrayList;
 
+
 /**
  * Shiftar text hantering.
  */

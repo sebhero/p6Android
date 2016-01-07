@@ -15,10 +15,13 @@ import se.mah.kirby.view.ViewImpl;
 import java.util.ArrayList;
 
 /**
+ * Created by Sebastian Börebäck on 2015-12-13.
+ */
+
+/**
  *En klass som kommer att innehålla en en Colordisplay som
  * man kan skriva ut en text och få den att rulla med längst
  */
-
 public class FlowText extends Activity implements ViewImpl{
 
 
