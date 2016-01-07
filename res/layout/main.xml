@@ -25,14 +25,17 @@
                   android:orientation="horizontal">
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Random Color"
-                android:onClick="getRandomColor"/>
+                android:onClick="getRandomColor"
+            android:id="@+id/btn_random" />
 
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Load text"
-                android:onClick="loadText"/>
+                android:onClick="loadText"
+            android:id="@+id/btn_loadtext" />
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Swap to Main"
-                android:onClick="switchToStartActivity"/>
+                android:onClick="switchToStartActivity"
+            android:id="@+id/btn_swapmain" />
 
     </LinearLayout>
     <TextView
@@ -45,18 +48,20 @@
                   android:orientation="horizontal">
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="right"
-        android:onClick="shiftRight"/>
+        android:onClick="shiftRight"
+            android:id="@+id/btn_right" />
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="left"
-                android:onClick="shiftLeft"/>
+                android:onClick="shiftLeft"
+            android:id="@+id/btn_left" />
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="up"
                 android:onClick="shiftUp"
-        />
+            android:id="@+id/btn_up" />
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="down"
                 android:onClick="shiftDown"
-        />
+            android:id="@+id/btn_down" />
     </LinearLayout>
 
     <TextView
@@ -76,13 +81,13 @@
             android:layout_height="wrap_content"
             android:text="Start"
             android:onClick="shiftStart"
-            android:id="@+id/button" />
+            android:id="@+id/btn_start" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Stop"
-            android:id="@+id/btnStop"
+            android:id="@+id/btn_stop"
             android:onClick="shiftStopp"/>
 
     </LinearLayout>

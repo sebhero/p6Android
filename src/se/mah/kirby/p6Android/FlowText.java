@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import se.mah.kirby.Color.Color;
 import se.mah.kirby.Color.ColorDisplay;
@@ -24,6 +25,13 @@ public class FlowText extends Activity implements ViewImpl{
 	private ColorDisplay colorDisplay;
 	private Controller ctrl;
 	private EditText etInputText;
+	private Button btnStart;
+	private Button btnStop;
+	private Button btnRight;
+	private Button btnLeft;
+	private Button btnDown;
+	private Button btnUp;
+	private Button btnRandom;
 
 	/**
 	 * Detta kallas så fort vi kommer in i aktiviten och sätter upp layout
@@ -46,13 +54,24 @@ public class FlowText extends Activity implements ViewImpl{
 		//set the view to the controller
 		ctrl.setView(this);
 
+		btnStart = (Button) findViewById(R.id.btn_start);
+		btnStop = (Button) findViewById(R.id.btn_stop);
+		btnDown = (Button) findViewById(R.id.btn_down);
+		btnUp = (Button) findViewById(R.id.btn_up);
+		btnRight = (Button) findViewById(R.id.btn_right);
+		btnLeft = (Button) findViewById(R.id.btn_left);
+		btnRandom = (Button) findViewById(R.id.btn_random);
 	}
-
+	enum states {
+		START,
+		STOP
+	}
 	/**
 	 * En metod som kommer att fylla den första dispalyn med random färger
 	 * @param view
 	 */
 	public void getRandomColor(View view) {
+		setState(states.START);
 		ctrl.showRandomColor();
 	}
 	/**
@@ -139,6 +158,7 @@ public class FlowText extends Activity implements ViewImpl{
 	 * @param view för att få kontakt med skärmen
 	 */
 	public void shiftRight(View view) {
+		setState(states.START);
 		String texy = String.valueOf(etInputText.getText());
 		ctrl.loadFlowText(texy);
 		ctrl.setDirection(Controller.DIRECTION.RIGHT);
@@ -151,6 +171,7 @@ public class FlowText extends Activity implements ViewImpl{
 	 * @param view för att få kontakt med skärmen
 	 */
 	public void shiftLeft(View view) {
+		setState(states.START);
 		String texy = String.valueOf(etInputText.getText());
 		ctrl.loadFlowText(texy);
 		ctrl.setDirection(Controller.DIRECTION.LEFT);
@@ -163,7 +184,7 @@ public class FlowText extends Activity implements ViewImpl{
 	 * @param view för att få kontakt med skärmen
 	 */
 	public void shiftUp(View view) {
-
+		setState(states.START);
 		String texy = String.valueOf(etInputText.getText());
 		ctrl.loadFlowText(texy);
 		ctrl.setDirection(Controller.DIRECTION.UP);
@@ -176,6 +197,7 @@ public class FlowText extends Activity implements ViewImpl{
 	 * @param view för att få kontakt med skärmen
 	 */
 	public void shiftDown(View view) {
+		setState(states.START);
 		String texy = String.valueOf(etInputText.getText());
 		ctrl.loadFlowText(texy);
 		ctrl.setDirection(Controller.DIRECTION.DOWN);
@@ -199,6 +221,7 @@ public class FlowText extends Activity implements ViewImpl{
 	 * @param view För att få kontakt med knappen på skärmen
 	 */
 	public void shiftStart(View view){
+		setState(states.START);
 		String texy = String.valueOf(etInputText.getText());
 		ctrl.loadFlowText(texy);
 		ctrl.setDirection(Controller.DIRECTION.LEFT);
@@ -211,7 +234,29 @@ public class FlowText extends Activity implements ViewImpl{
 	 * @param view för att få kontakt med knappen på skärmen
 	 */
 	public void shiftStopp(View view){
+		setState(states.STOP);
 		ctrl.pause();
-
+	}
+	public void setState(states CurretState){
+		switch(CurretState){
+			case START:
+				btnDown.setEnabled(false);
+				btnRandom.setEnabled(false);
+				btnLeft.setEnabled(false);
+				btnUp.setEnabled(false);
+				btnRight.setEnabled(false);
+				btnStart.setEnabled(false);
+				btnStop.setEnabled(true);
+				break;
+			case STOP:
+				btnDown.setEnabled(true);
+				btnRandom.setEnabled(true);
+				btnLeft.setEnabled(true);
+				btnUp.setEnabled(true);
+				btnRight.setEnabled(true);
+				btnStart.setEnabled(true);
+				btnStop.setEnabled(false);
+				break;
+		}
 	}
 }
