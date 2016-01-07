@@ -15,7 +15,7 @@ import se.mah.kirby.model.Array7x7;
 import se.mah.kirby.view.ViewImpl;
 
 /**
- * Created by jonatan on 2016-01-06.
+ * @author Robin Johnsson och Jonatan Fridsten
  */
 public class ViewColor extends Activity implements ViewImpl{
     private Controller ctrl;
