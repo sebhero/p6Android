@@ -51,20 +51,20 @@ public class ViewShift extends Activity implements ViewImpl {
         ctrlShift.setView(this);
         ctrlShift.showRandom();
 
-        textViewsRight01 = (TextView) findViewById(R.id.txt_edit01);
-        textViewsRight02 = (TextView) findViewById(R.id.txt_edit02);
-        textViewsRight03 = (TextView) findViewById(R.id.txt_edit03);
-        textViewsRight04 = (TextView) findViewById(R.id.txt_edit04);
-        textViewsRight05 = (TextView) findViewById(R.id.txt_edit05);
-        textViewsRight06 = (TextView) findViewById(R.id.txt_edit06);
-        textViewsRight07 = (TextView) findViewById(R.id.txt_edit07);
-        textViewsLeft01 = (TextView) findViewById(R.id.txt_edit_L01);
-        textViewsLeft02 = (TextView) findViewById(R.id.txt_edit_L02);
-        textViewsLeft03 = (TextView) findViewById(R.id.txt_edit_L03);
-        textViewsLeft04 = (TextView) findViewById(R.id.txt_edit_L04);
-        textViewsLeft05 = (TextView) findViewById(R.id.txt_edit_L05);
-        textViewsLeft06 = (TextView) findViewById(R.id.txt_edit_L06);
-        textViewsLeft07 = (TextView) findViewById(R.id.txt_edit_L07);
+        textViewsRight01 = (TextView) findViewById(R.id.txt_edit_L01);
+        textViewsRight02 = (TextView) findViewById(R.id.txt_edit_L02);
+        textViewsRight03 = (TextView) findViewById(R.id.txt_edit_L03);
+        textViewsRight04 = (TextView) findViewById(R.id.txt_edit_L04);
+        textViewsRight05 = (TextView) findViewById(R.id.txt_edit_L05);
+        textViewsRight06 = (TextView) findViewById(R.id.txt_edit_L06);
+        textViewsRight07 = (TextView) findViewById(R.id.txt_edit_L07);
+        textViewsLeft01 = (TextView) findViewById(R.id.txt_edit01);
+        textViewsLeft02 = (TextView) findViewById(R.id.txt_edit02);
+        textViewsLeft03 = (TextView) findViewById(R.id.txt_edit03);
+        textViewsLeft04 = (TextView) findViewById(R.id.txt_edit04);
+        textViewsLeft05 = (TextView) findViewById(R.id.txt_edit05);
+        textViewsLeft06 = (TextView) findViewById(R.id.txt_edit06);
+        textViewsLeft07 = (TextView) findViewById(R.id.txt_edit07);
 
     }
     public Array7x7 getTextArray(){
@@ -136,14 +136,14 @@ public class ViewShift extends Activity implements ViewImpl {
 
     public void shiftRight(View view){
         ctrlShift.setDirection(Controller.DIRECTION.RIGHT);
-        Array7x7 array7x7 = new Array7x7();
-        array7x7 = getTextArray();
         temp2 = getLeftArray();
-        setTextArray(array7x7);
-        //chashar ej ner hit ? felet bör ligga längre ner!
-        setRightArray(shiftare.shiftRight(array7x7, temp2));
-        //setLeftArray(temp1);
-        //updateView(getIntMatrix(array7x7));
+
+        //skicka temp2 till ctrl och shifta right
+        Array7 returnArr = this.ctrlShift.shift(temp2);
+        setRightArray(returnArr);
+        setLeftArray(new Array7());
+        ctrlShift.updateView();
+
 
     }
     public void shiftLeft(View view){

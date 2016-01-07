@@ -13,6 +13,7 @@ import se.mah.kirby.view.ViewImpl;
 
 import java.util.ArrayList;
 
+
 public class FlowText extends Activity implements ViewImpl{
 
 
