@@ -327,6 +327,7 @@ public class Controller extends Application{
 	 * Pausar timern
 	 */
 	public void pause() {
+		if(timer != null)
 		timer.cancel();
 	}
 
