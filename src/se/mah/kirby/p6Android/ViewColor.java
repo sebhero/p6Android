@@ -143,6 +143,9 @@ public class ViewColor extends Activity implements ViewImpl{
                 ctrl.showShift(arr);
                 break;
             case R.id.btn_shiftDown:
+                ctrl.setDirection(Controller.DIRECTION.DOWN);
+                arr = new Array7();
+                ctrl.showShift(arr);
                 break;
             case R.id.btn_shiftLeft:
                 resetTick();
