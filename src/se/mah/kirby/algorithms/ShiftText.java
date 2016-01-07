@@ -12,7 +12,7 @@ import se.mah.kirby.strategy.FillCharacter;
 import java.util.ArrayList;
 
 /**
- * Created by Sebastian Börebäck on 2015-12-30.
+ * Shiftar text hantering.
  */
 public class ShiftText {
 

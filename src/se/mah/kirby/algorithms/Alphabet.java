@@ -17,19 +17,7 @@ import java.net.URL;
  */
 public class Alphabet {
 
-	//	private Font font;
 	private Typeface font;
-
-	/**
-	 * Konstruktor
-	 */
-//	public Alphabet() {
-//		try {
-//			font = initFont();
-//		} catch (IOException | URISyntaxException e) {
-//			e.printStackTrace();
-//        }
-//    }
 
 	public Alphabet(Typeface font) {
 		this.font = font;
@@ -40,19 +28,15 @@ public class Alphabet {
 	 * @return Ett importerat typsnitt för att bokstäverna ska se bra ut i 7x7
 	 * @throws IOException
 	 */
+	/*
 	public Typeface initFont() throws IOException, URISyntaxException {
         URL fontpath = this.getClass().getClassLoader().getResource("assets/00TT.ttf");
-//		face = Typeface.createFromAsset(getAssets(), "font.otf");
-//		return Font.createFont(Font.TRUETYPE_FONT, new File(fontpath.toURI())).deriveFont(12f);
-
-//		Typeface temp = Typeface.createFromAsset(getAssets(),)
 		return null;
 	}
-
+*/
 	/**
-	 *
-	 * @param letter
-	 * Bokstaven som man vill ha i 7x7 format
+	 * Skapar en Array7x7 av en char bokstav.
+	 * @param letter Bokstaven som man vill ha i 7x7 format
 	 * @return En 2d int array som är 7x7 och representerar en bokstav
 	 * @exception RuntimeException Om bokstaven inte accepteras
 	 */
@@ -72,12 +56,9 @@ public class Alphabet {
 		paint.setColor(Color.WHITE);
 		//turn off
 		paint.setAntiAlias(true);
-//		paint.setTextAlign(Paint.Align.LEFT);
-//		float baseline = -paint.ascent(); // ascent() is negative
 		//set the hight and width of the letter
 		int width = (int) (paint.measureText(text) + 0.5f); // round
 		int height = 11;//ar alltid 11 i denna textsize 12
-//		int height = (int) (baseline + paint.descent() + 0.5f);
 
 		//ifall bokstaven är mindre än 7x7
 		if (width < 7) {
@@ -94,22 +75,9 @@ public class Alphabet {
 		//paint the canvas
 		canvas.drawText(text, 1, 7, paint);
 
-		//ifall man skulle forsoka skala.
-		//Bitmap bmp = Bitmap.createScaledBitmap(image, 7,7, false);
 
-
-//		//Skapar en ny bild av typen RGB
-//        BufferedImage image = new BufferedImage(array.length, array.length, BufferedImage.TYPE_INT_RGB);
-//        Graphics g = image.getGraphics();
-//        g.setFont(font);
-//        Graphics2D graphics = (Graphics2D) g;
-//        //Ritar ut bokstaven på graphics objektet av image
-//        graphics.drawString(Character.toString(letter), 0, array.length);
         //En boolean för att se om det är en bokstav som returneras eller om bokstaven inte accepteras
         boolean isChar = false;
-        //skriver bilden i arrayen genom att loppa igenom den.
-        //-16777216 är blank ruta
-
 
 		//Acutall size is 7x11 but the 4 extra pixels are all black color
 

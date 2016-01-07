@@ -54,14 +54,7 @@ public class NumberActivity extends Activity implements ViewImpl{
 		ctrl.showNumbers1_7();
 	}
 
-	/**
-	 * Metoden kommer att sätta en input kontroller till den lokala
-	 * @param ctrl
-	 */
-	@Override
-	public void setCtrl(Controller ctrl) {
 
-	}
 
 	/**
 	 * Metoden kommer att uppdatera det som finns på skärmen
@@ -73,14 +66,6 @@ public class NumberActivity extends Activity implements ViewImpl{
 		this.intDisplay.updateDisplay();
 	}
 
-	/**
-	 *	Metoden används inte här
-	 * @param all
-	 */
-	@Override
-	public void updateBigView(Array7x7[] all) {
-
-	}
 
 	/**
 	 *	Retunerar många sidor man har på ländgen

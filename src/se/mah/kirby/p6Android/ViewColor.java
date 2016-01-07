@@ -222,14 +222,7 @@ public class ViewColor extends Activity implements ViewImpl{
         }
     }
 
-    /**
-     * Metoden kommer att sätta den lokala kontrollern med en input kontroller
-     * @param ctrl
-     */
-    @Override
-    public void setCtrl(Controller ctrl) {
-        this.ctrl = ctrl;
-    }
+
 
     /**
      * Metoden kommer att uppdatera viewn på colordisplayn
@@ -240,10 +233,7 @@ public class ViewColor extends Activity implements ViewImpl{
         colorDisplay.setDisplay(all);
         colorDisplay.updateDisplay();
     }
-    //används ej
-    @Override
-    public void updateBigView(Array7x7[] all) {
-    }
+
     //används ej
     @Override
     public int getHorizontalPages() {

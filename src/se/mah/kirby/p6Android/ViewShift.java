@@ -190,14 +190,6 @@ public class ViewShift extends Activity implements ViewImpl {
         return newArr;
     }
 
-    /**
-     * Metoden kommer att sätta en input kontroller till den lokala
-     * @param ctrl
-     */
-    @Override
-    public void setCtrl(Controller ctrl) {
-        this.ctrlShift = ctrl;
-    }
 
     /**
      * Metoden kommer att uppdatera intdisplayn med nya värdena
@@ -209,11 +201,7 @@ public class ViewShift extends Activity implements ViewImpl {
         this.intDisplayshift.updateDisplay();
     }
 
-    //används ej
-    @Override
-    public void updateBigView(Array7x7[] all) {
 
-    }
 
     //används ej
     @Override

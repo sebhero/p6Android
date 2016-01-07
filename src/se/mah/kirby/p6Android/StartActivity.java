@@ -34,14 +34,7 @@ public class StartActivity extends Activity implements ViewImpl{
         ctrl.setView(this);
     }
 
-    /**
-     * Metoden kommer att sätta en input kontroller till den lokala
-     * @param ctrl
-     */
-    @Override
-    public void setCtrl(Controller ctrl) {
 
-    }
 
     //används inte
     @Override
@@ -49,11 +42,7 @@ public class StartActivity extends Activity implements ViewImpl{
 
     }
 
-    //används inte
-    @Override
-    public void updateBigView(Array7x7[] all) {
 
-    }
 
     //används inte
     @Override

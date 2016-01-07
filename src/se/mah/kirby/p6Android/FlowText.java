@@ -74,12 +74,7 @@ public class FlowText extends Activity implements ViewImpl{
 		setState(states.START);
 		ctrl.showRandomColor();
 	}
-	/**
-	 * Sätter den lokala kontrollerna fårn n input kontroller
-	 */
-	@Override
-	public void setCtrl(Controller ctrl) {
-	}
+
 
 	/**
 	 * Uppdaterar Colordisplayviewn så att man får de nya värdena
@@ -91,11 +86,7 @@ public class FlowText extends Activity implements ViewImpl{
 		colorDisplay.setDisplay(all);
 		colorDisplay.updateDisplay();
 	}
-	//används inte i denna klassen
-	@Override
-	public void updateBigView(Array7x7[] all) {
 
-	}
 
 	/**
 	 * Metoden kommer att retunera hur lång ens lista med

@@ -10,18 +10,11 @@ import java.util.ArrayList;
  */
 public interface ViewImpl {
 
-	/**
-     * Används inte för att i AndroidManifest.xml så finns det länk till Controllern som vyn
-     * anroppar på deras onCreate. därmed behöver man inte sätta den längre.
-     *
-     * @param ctrl
-     */
-    @Deprecated
-    void setCtrl(Controller ctrl);
+
 
     void updateView(int[][] all);
 
-    void updateBigView(Array7x7[] all);
+
 
     int getHorizontalPages();
     int getVerticalPages();

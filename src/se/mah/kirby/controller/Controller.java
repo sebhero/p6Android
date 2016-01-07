@@ -31,20 +31,6 @@ public class Controller extends Application{
 	//Hanterar text shiftning
 	private ShiftText shiftText;
 
-	private Array7x7[] colorDisplay;
-	//TODO remove use ShiftText instead
-    //för flowtext hålla kolla på vilket tecken i string
-    private int shiftCounter;
-	//TODO remove use ShiftText instead
-    //för flowtext håller koll på vilken kolumn vi är i tecknet
-    private int shiftArrayIdx;
-
-
-	//TODO remove use ShiftText instead
-	private ArrayList<Array7x7> message = new ArrayList<Array7x7>();
-
-
-
 	//håller koll på vilket håll vi shiftar
     public enum DIRECTION {
 		RIGHT,
@@ -71,8 +57,7 @@ public class Controller extends Application{
     private Timer timer;
 
     /**
-     * A se.mah.kirby.controller to handles communication with the Array7x7 se.mah.kirby.model and diffrent strategies for filling it.
-     *
+     * Kontroller som hanterar kommunikationen mellan vyerna och modelen Array7x7
      */
     public Controller() {
         this.model = new Array7x7();
@@ -84,6 +69,9 @@ public class Controller extends Application{
 //        updateView();
     }
 
+	/**
+	 * skapar controllern. ger ShiftText fonten så att den kan användas för att skapa bokstäver.
+	 */
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -95,16 +83,24 @@ public class Controller extends Application{
 
 	}
 
+	/**
+	 * Hämtar riktning som kontrollern har just nu.
+	 * @return
+	 */
 	public DIRECTION getDirection() {
 		return dir;
 	}
 
+	/**
+	 * Sätter aktiv vy.
+	 * @param view
+	 */
 	public void setView(ViewImpl view) {
 		this.view = view;
 	}
 
 	/**
-     * Update the view med Array7x7 av nummer
+	 * Uppdaterar vyn med en Array7x7
      */
     public void updateView() {
         view.updateView(model.getAll());
@@ -112,8 +108,8 @@ public class Controller extends Application{
 
 
     /**
-     * Btn call from view
-     * Shift right the matrix
+	 * Knapp tryck.
+	 * skiftar höger på modelen
      */    
     public Array7 shift(Array7 newArray) {
 
@@ -130,7 +126,7 @@ public class Controller extends Application{
     }
     
     /**
-     * btn click
+	 * Knapp tryck
      * Slumpar antal siffror och ritar ut den i vyn
      */
     public void showRandom() {
@@ -140,7 +136,7 @@ public class Controller extends Application{
     }
 
     /**
-     * btn click
+     * knapp tryck
      * Ritar ut 1-7 i vyn
      * 1234567
      * 1234567
@@ -156,18 +152,7 @@ public class Controller extends Application{
         updateView();
     }
 
-    /**
-     * btn click from view
-     * Slumpar ett tal och fyller Array7x7 med detta tal
-     * därefter visar den i vyn
-     */
-    public void showRandomSame() {
-        filler = getFiller(FILLERTYPE.NUMBERS);
 
-        int rnd = new Random().nextInt(7)+1;
-        model = filler.fillWithOneType(rnd);
-        updateView();
-    }
 
     /**
      * Hämtar vilken fyll algoritm vi ska använda
@@ -189,7 +174,7 @@ public class Controller extends Application{
     }
 
     /**
-     * btn click
+     * knapp tryck
      * Visa slumpade färger i vyn
      */
     public void showRandomColor() {
@@ -204,14 +189,7 @@ public class Controller extends Application{
 		}
     }
 
-    /**
-     * @deprecated use updateView()
-     * uppdatera vyn med nya Array7x7
-     * av typen färger
-     */
-//    private void updateViewColor() {
-//        view.updateViewColor(se.mah.kirby.model.getAll());
-//    }
+
 
     /**
      * Visa en färg i på hela Array7x7 i vyn
@@ -243,7 +221,7 @@ public class Controller extends Application{
 
 
     /**
-     * Btn click
+     * knapp tryck
      * Satter en ny rad i modelen.
      */
     public void setRow(int rowPos, int[] newRow) {
@@ -252,7 +230,7 @@ public class Controller extends Application{
     }
 
     /**
-     * Btn click
+     * knapp tryck
      * Satter en ny kolumn i modelen.
      */
     public void setCol(int colPos, int[] newCol) {
@@ -262,7 +240,7 @@ public class Controller extends Application{
 
 
     /**
-     * Btn click
+     * knapp tryck
      * Satter ett nytt element i modelen.
      */
     public void setElement(int rowPos, int colPos, int value) {
@@ -272,7 +250,7 @@ public class Controller extends Application{
     }
 
     /**
-     * Btn click
+     * knapp tryck
      * Hamtar rad i modelen.
      */
     public int[] getRow(int rowPos) {
@@ -280,7 +258,7 @@ public class Controller extends Application{
     }
 
     /**
-     * Btn click
+     * knapp tryck
      * Hamtar kolumn i modelen.
      */
     public int[] getCol(int colPos) {
@@ -288,7 +266,7 @@ public class Controller extends Application{
     }
 
     /**
-     * Btn click
+     * knapp tryck
      * Hamtar element i modelen.
      */
     public int getElement(int rowPos, int colPos) {
@@ -296,32 +274,17 @@ public class Controller extends Application{
     }
 
 
+	/**
+	 * Shiftar modelen i nuvarande riktning.
+	 * därefter uppdatera vyn
+	 * @param input
+	 */
 	public void showShift(Array7 input) {
 		shift(input);
 		updateView();
 
 	}
 
-
-
-	//TODO OLD flowtext
-
-	/**
-	 * Rinnande text timer
-	 * shiftar Strängen en kolumn i taget
-	 * och kallar på att uppdatera vyn
-	 */
-	private class flowTextTimer extends TimerTask {
-		@Override
-		public void run() {
-			//start shifting letters
-			shiftString();
-
-			flowBigText();
-
-			updateView2();
-		}
-	}
 
 	/**
 	 * Pausar timern
@@ -331,171 +294,6 @@ public class Controller extends Application{
 		timer.cancel();
 	}
 
-	/**
-	 * Startar timern igen
-	 */
-	public void resume() {
-		timer = new Timer();    //Då shiftcounter och shiftArrayIdx inte ändras kan man bara göra en ny timer
-		timer.schedule(new flowTextTimer(), 50, 50);
-	}
-
-	/**
-	 * Skiftar bara ett steg åt dir
-	 * @param dir vilket håll det ska skiftas åt
-	 */
-	public void simpleShift(DIRECTION dir) {
-		DIRECTION currentDir = this.dir;
-		this.dir = dir;
-		shiftString();
-		this.dir = currentDir;
-	}
-
-	/**
-	 * Btn click
-	 * Visar rinande text på texy som kommer in från vyn
-	 * @param texy
-	 */
-	public void flowText(String texy) {
-		//TODO Added so that the shifttext get the string and sets the size of the messageview
-		this.shiftText.loadText(texy);
-		this.shiftText.setupMessageView(colorDisplay.length);
-
-		filler = getFiller(FILLERTYPE.CHARACTERS);
-		texy = texy.toUpperCase();
-		for(int n = 0; n < texy.length(); n++) {
-			Array7x7 character = filler.fillWithOneType((int) texy.charAt(n));
-			message.add(character);
-		}
-
-		//which char in msg
-		shiftCounter =0;
-		//column index
-		if (dir == DIRECTION.LEFT) {
-			shiftArrayIdx = 0;
-
-		}
-		if(dir == DIRECTION.RIGHT)
-		{
-			shiftArrayIdx = 6;
-		}
-		//start timer
-		timer = new Timer();
-		timer.schedule(new flowTextTimer(), 50, 50);
-	}
-
-	public void flowBigText() {
-//		colorDisplay[view.getHorizontalPages() - 1] = se.mah.kirby.model;
-//		Array7 lastCol = colorDisplay[view.getHorizontalPages() - 1].getCol(6);
-//		for(int n = colorDisplay.length - 1; n >= 0; n--) {
-//			lastCol = shifter.shift(colorDisplay[n], lastCol, dir);
-//		}
-
-		shiftText.stepText(dir);
-		colorDisplay = shiftText.getMessageView7x7();
-		//code above does this
-//		next = new Array7(Color.BLACK);
-//		for (int i = message.size()-1; i >= 0 ; i--) {
-//			next= shifter.shift(message.get(i), next, dir);
-//		}
-//
-//		for (int i = colorDisplay.length-1; i >= 0 ; i--) {
-//			next= shifter.shift(colorDisplay[i], next, dir);
-//		}
-
-
-	}
-
-	/**
-	 * FlowText timern kallar på denna var 50ms
-	 * för att få en rullande text
-	 */
-	private Array7 shiftString() {
-
-		if (message.size() <= 0) {
-			return null;
-		}
-
-		//hämta nästa a7x7
-		Array7x7 next = message.get(shiftCounter);
-		//hämta nästa kolumn
-		Array7 nextArray = next.getCol(shiftArrayIdx);
-		//kollar om det är nästa kolumn eller rad som ska hämtas!
-		if(dir== DIRECTION.LEFT || dir== DIRECTION.RIGHT){
-			nextArray = next.getCol(shiftArrayIdx);
-		}
-		if(dir== DIRECTION.UP || dir== DIRECTION.DOWN){
-			nextArray = next.getRow(shiftArrayIdx);
-		}
-		//do shift
-		nextArray = shift(nextArray);
-
-		//update index to shift
-
-		if (dir == DIRECTION.LEFT) {
-			shiftArrayIdx++;
-			if (shiftArrayIdx >= message.get(shiftCounter).getLength()) {
-				shiftCounter++;
-				shiftArrayIdx=0;
-
-				if (shiftCounter >= message.size()) {
-					//done flowing
-					message.clear();
-					timer.cancel();
-				}
-			}
-		}
-		if (dir == DIRECTION.RIGHT) {
-			shiftArrayIdx--;
-			//begin next char
-			if (shiftArrayIdx < 0) {
-				shiftCounter++;
-				shiftArrayIdx=6;
-
-				if (shiftCounter >= message.size()) {
-					//done flowing
-					message.clear();
-					timer.cancel();
-				}
-			}
-		}
-		if (dir == DIRECTION.UP) {
-			shiftArrayIdx++;
-			//begin next char
-			if (shiftArrayIdx >= message.get(shiftCounter).getLength()) {
-				shiftCounter++;
-				shiftArrayIdx=0;
-
-				if (shiftCounter >= message.size()) {
-					//done flowing
-					message.clear();
-					timer.cancel();
-				}
-			}
-		}
-		if (dir == DIRECTION.DOWN) {
-			shiftArrayIdx--;
-			//begin next char
-			if (shiftArrayIdx < 0) {
-				shiftCounter++;
-				shiftArrayIdx=6;
-
-				if (shiftCounter >= message.size()) {
-					//done flowing
-					message.clear();
-					timer.cancel();
-				}
-			}
-		}
-
-		return nextArray;
-
-	}
-
-	private void updateView2() {
-		view.updateBigView(colorDisplay);
-	}
-
-	// TODO new FlowText using the shiftText that works in all directions
 
 	/**
 	 * Uppdaterar vyn med den nya message list<7x7>
@@ -512,14 +310,14 @@ public class Controller extends Application{
 		shiftText.loadText(texy);
 	}
 
-	/**
-	 * btn click för att steppa genom strängen vi har laddat in
-	 */
-	public void showStepText() {
-
-		shiftText.stepText(dir);
-		updateViewMessage();
-	}
+//	/**
+//	 * knapp tryck för att steppa genom strängen vi har laddat in
+//	 */
+//	public void showStepText() {
+//
+//		shiftText.stepText(dir);
+//		updateViewMessage();
+//	}
 
 
 	/**
