@@ -11,8 +11,9 @@ import java.util.ArrayList;
 public interface ViewImpl {
 
 	/**
-     * Never used due to the AndroidManifest.xml CDI in the controller into the view.
-     * afterwards the view calls the controller and sets the current view
+     * Används inte för att i AndroidManifest.xml så finns det länk till Controllern som vyn
+     * anroppar på deras onCreate. därmed behöver man inte sätta den längre.
+     *
      * @param ctrl
      */
     @Deprecated

@@ -18,6 +18,10 @@ public class NumberActivity extends Activity implements ViewImpl{
 	private Controller ctrl;
 	private IntDisplay intDisplay;
 
+	/**
+	 *Metoden kommer att Sätta upp layouten och hur det ska se ut i starten av aktiviteten
+	 * @param savedInstanceState
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,48 +38,83 @@ public class NumberActivity extends Activity implements ViewImpl{
 		ctrl.showRandom();
 	}
 
+	/**
+	 * Slumpar antal siffror och ritar ut den i vyn
+	 * @param view för att få kontakt med knappen på skärmen
+	 */
 	public void getRandomNumbers(View view) {
 		ctrl.showRandom();
 	}
 
+	/**
+	 *Metoden kommer att fylla displayn med stigande nummer
+	 * @param view för att få kontakt med knappen på skärmen
+	 */
 	public void getIncreasingNumbers(View view) {
 		ctrl.showNumbers1_7();
 	}
 
+	/**
+	 * Metoden kommer att sätta en input kontroller till den lokala
+	 * @param ctrl
+	 */
 	@Override
 	public void setCtrl(Controller ctrl) {
 
 	}
 
+	/**
+	 * Metoden kommer att uppdatera det som finns på skärmen
+	 * @param all
+	 */
 	@Override
 	public void updateView(int[][] all) {
-		//this.intDisplay.clearDisplay();
 		this.intDisplay.setDisplay(all);
 		this.intDisplay.updateDisplay();
 	}
 
+	/**
+	 *	Metoden används inte här
+	 * @param all
+	 */
 	@Override
 	public void updateBigView(Array7x7[] all) {
 
 	}
 
+	/**
+	 *	Retunerar många sidor man har på ländgen
+	 * @return
+	 */
 	@Override
 	public int getHorizontalPages() {
 		return 1;
 	}
 
+	/**
+	 *	Retunerar hur många sidor man har på höjden
+	 * @return
+	 */
 	@Override
 	public int getVerticalPages() {
 		return 1;
 	}
 
+	/**
+	 *Uppdaterar intdisplayn med de nya värdena som man får som input
+	 * @param all arraylista med värden
+	 * @param dir vilket håll man shiftar på
+	 */
 	@Override
 	public void updateView(ArrayList<int[][]> all, Controller.DIRECTION dir) {
 		this.intDisplay.setDisplay(all.get(0));
 		this.intDisplay.updateDisplay();
 	}
 
-
+	/**
+	 * Metoden kommer att göra så att man återvänder till huvudmenyn
+	 * @param view för att få kontakt med knappen på skärmen
+	 */
 	public void switchToStartActivity(View view) {
 		Intent openNewActivity = new Intent(getApplicationContext(), StartActivity.class);
 		startActivity(openNewActivity);

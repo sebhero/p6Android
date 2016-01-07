@@ -31,6 +31,7 @@ public class ShiftText {
 	private int stepps;
 	//total antal steg som finns.
 	private int doneStepping;
+	private boolean flowing =false;
 
 	public ShiftText(Typeface font) {
 		filler = new FillCharacter(font);
@@ -170,5 +171,13 @@ public class ShiftText {
 			temp[i] = messageView.get(i);
 		}
 		return temp;
+	}
+
+	public void setEndingFlowing(boolean flowing) {
+		this.flowing = flowing;
+	}
+
+	public boolean getEndingFlowing() {
+		return flowing;
 	}
 }

@@ -524,7 +524,8 @@ public class Controller extends Application{
 	/**
 	 * Rullande text av strängen vi har laddat in
 	 */
-	public void flowText() {
+	public void flowText(boolean flowing) {
+		shiftText.setEndingFlowing(flowing);
 		switch (dir) {
 			case RIGHT:
 			case LEFT:
@@ -532,11 +533,11 @@ public class Controller extends Application{
 				shiftText.setupMessageView(view.getHorizontalPages());
 				//setup max steps how many Columns/rows
 				if (view.getHorizontalPages() > shiftText.getMessageSize()) {
-					shiftText.setMaxSteps(view.getHorizontalPages() * 7);
+					shiftText.setMaxSteps(view.getHorizontalPages() * 7+7);
 
 				}
 				else {
-					shiftText.setMaxSteps(shiftText.getMessageSize()*7);
+					shiftText.setMaxSteps(shiftText.getMessageSize()*7+7);
 				}
 				break;
 			case UP:
@@ -545,10 +546,10 @@ public class Controller extends Application{
 				shiftText.setupMessageView(view.getVerticalPages());
 				//setup max steps how many Columns/rows
 				if (view.getVerticalPages() > shiftText.getMessageSize()) {
-					shiftText.setMaxSteps(view.getVerticalPages() * 7);
+					shiftText.setMaxSteps(view.getVerticalPages() * 7+7);
 				}
 				else {
-					shiftText.setMaxSteps(shiftText.getMessageSize()*7);
+					shiftText.setMaxSteps(shiftText.getMessageSize()*7+7);
 				}
 				break;
 		}
@@ -562,12 +563,15 @@ public class Controller extends Application{
 	 * Timmer till flowText för strängen vi har laddat in
 	 */
 	private class shiftTextTimer extends TimerTask {
+
+
 		@Override
 		public void run() {
 			if (shiftText.checkIfDoneStepping()){
 				//TODO if want continues flow remove this line
 
-				timer.cancel();
+				if(shiftText.getEndingFlowing())
+					timer.cancel();
 				return;
 			}
 			shiftText.stepText(dir);

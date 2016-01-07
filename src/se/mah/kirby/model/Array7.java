@@ -4,7 +4,8 @@ package se.mah.kirby.model;
  * Klassen kommer att inneh�lla en lista med sju int variabler
  * 
  * @author Jonatan Fridsten
- * testar
+ *
+ *
  */
 public class Array7 {
 
@@ -28,6 +29,10 @@ public class Array7 {
 		}
 	}
 
+	/**
+	 *Fyller med inmatade nummer
+	 * @param number
+	 */
     public Array7(int number) {
         for (int i = 0; i < array.length; i++) {
             array[i] = number;
@@ -35,36 +40,46 @@ public class Array7 {
     }
 
     /**
-	 * S�tt ett v�rde i en specifik position
+	 * Sätt ett värde i en specifik position
 	 * 
 	 * @param pos:
-	 *            vilken position man ska l�gga i v�rdet
+	 *            vilken position man ska lägga i värdet
 	 * @param value:
-	 *            v�rdet som man vill stoppa in
+	 *            värdet som man vill stoppa in
 	 */
 	public void setElement(int pos, int value) {
 		array[pos] = value;
 	}
 
 	/**
-	 * Returnerar ett v�rde p� en specifik position
+	 * Returnerar ett värde på en specifik position
 	 * 
 	 * @param pos:
-	 *            vilken position man vill veta v�rdet i
-	 * @return : v�rdet man vill veta
+	 *            vilken position man vill veta värdet i
+	 * @return : värdet man vill veta
 	 */
 	public int getElement(int pos) {
 		return array[pos];
 	}
 
+    /**
+     * Metoden kommer att retunera hela listan
+     * @return
+     */
     public int[] getAll() {
         return array;
     }
 
+    /**
+     * Metoden retunerar hur lång listan är
+     * @return
+     */
     public int getLength() {
         return array.length;
     }
-    
+    /**
+     * Metoden kommer att spara in informatrionen i en String
+     */
     public String toString() {
     	String res = "{";
     	for(int i=0; i<array.length; i++) {

@@ -81,8 +81,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stopp"
-            android:id="@+id/button2" />
+            android:text="Stop"
+            android:id="@+id/btnStop"
+            android:onClick="shiftStopp"/>
 
     </LinearLayout>
 

@@ -18,7 +18,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
@@ -245,7 +245,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="match_parent">
 
         <Button
             android:layout_width="fill_parent"
@@ -267,6 +267,13 @@
             android:text="Shift Left"
             android:onClick="shiftLeft"
             android:id="@+id/btn_shift_l" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Fill Random"
+            android:onClick="fillRandom"
+            android:id="@+id/btn_fill_random" />
 
     </LinearLayout>
 
