@@ -44,21 +44,21 @@ public class Alphabet {
 		int[][] array = new int[7][7];
 
 
-		//convert char to string
+		//gör om char till string
 		String text = String.valueOf(letter);
-		//create a paintbrush
+		//skapar en pänsel
 		Paint paint = new Paint();
-		//set font size
+		//sätter textstorlek
 		paint.setTextSize(12);
-		//set font
+		//Bestämmer Font
 		paint.setTypeface(font);
-		//set brush color
+		//Bestmmer pänsel-färg
 		paint.setColor(Color.WHITE);
-		//turn off
+		//Stäng av
 		paint.setAntiAlias(true);
-		//set the hight and width of the letter
+		//Sätter bredd och höjd
 		int width = (int) (paint.measureText(text) + 0.5f); // round
-		int height = 11;//ar alltid 11 i denna textsize 12
+		int height = 11;//är alltid 11 i denna textsize 12
 
 		//ifall bokstaven är mindre än 7x7
 		if (width < 7) {
@@ -67,19 +67,19 @@ public class Alphabet {
 		if (height < 7) {
 			height=7;
 		}
-		//create the image to paint to
+		//Skapar bilden som ska fyllas i
 		Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-		//create the canvas we are using
+		//Skapar Duken som ska användas
 		Canvas canvas = new Canvas(bmp);
 
-		//paint the canvas
+		//Målar duken
 		canvas.drawText(text, 1, 7, paint);
 
 
         //En boolean för att se om det är en bokstav som returneras eller om bokstaven inte accepteras
         boolean isChar = false;
 
-		//Acutall size is 7x11 but the 4 extra pixels are all black color
+		//Storleken är egentligen 7x11, men de 4 extra pixlarna är alla svarta
 
 		if (letter == ' ') {
 			for (int i = 0; i < 7; i++) {
@@ -93,7 +93,7 @@ public class Alphabet {
 
         for (int y = 0; y < 7; y++) {
             for (int x = 0; x < 7; x++) {
-	            //get the colors from bitmap
+				//FÅr färgerna från bitmap
 	            if(bmp.getPixel(x,y) == Color.BLACK) {
             		array[y][x] = Color.TRANSPARENT;
             	}
