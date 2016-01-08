@@ -23,17 +23,8 @@ public class Alphabet {
 		this.font = font;
 	}
 
-	/**
-	 *
-	 * @return Ett importerat typsnitt för att bokstäverna ska se bra ut i 7x7
-	 * @throws IOException
-	 */
-	/*
-	public Typeface initFont() throws IOException, URISyntaxException {
-        URL fontpath = this.getClass().getClassLoader().getResource("assets/00TT.ttf");
-		return null;
-	}
-*/
+
+
 	/**
 	 * Skapar en Array7x7 av en char bokstav.
 	 * @param letter Bokstaven som man vill ha i 7x7 format
